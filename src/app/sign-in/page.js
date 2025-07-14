@@ -9,6 +9,7 @@ import InputText from '@/components/InputText'
 import { useAuth } from '@/contexts/AuthContext'
 import { api } from '@/libs/axios'
 import { toast, ToastContainer } from 'react-toastify'
+import { MdLogin } from 'react-icons/md'
 
 export default function SignInPage() {
     const [email, setEmail] = useState('')
@@ -77,9 +78,10 @@ export default function SignInPage() {
                             />
 
                             <Button
-                                type="submit"
+                                onClick={handleSignIn}
                                 disabled={isLoading}
                                 className="w-full"
+                                icon={<MdLogin size={24} className="text-white" />}
                             >
                                 {isLoading ? 'Entrando...' : 'Entrar'}
                             </Button>

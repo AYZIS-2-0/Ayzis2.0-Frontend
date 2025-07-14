@@ -6,7 +6,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FaChartPie } from "react-icons/fa6";
-import { MdGroups3 } from "react-icons/md";
+import { MdLogin, MdPersonAdd } from "react-icons/md";
 import { IoMdAlert } from "react-icons/io";
 import { IoDocumentSharp } from "react-icons/io5";
 import { AiFillApi } from "react-icons/ai";
@@ -50,7 +50,7 @@ export default function LandingPage() {
             <Header landing={true} />
 
             <main className="mx-20 flex-1 flex items-center justify-center">
-                <div className="w-full flex flex-row items-center justify-center gap-4">
+                <div className="w-full flex md:flex-row flex-col items-center justify-center gap-4">
                     <div className="p-8 w-[50%]">
                         <h1 className="text-3xl font-bold text-white mb-2">
                             Bem-vindo ao AYZIS
@@ -83,8 +83,9 @@ export default function LandingPage() {
                                         Fazer login
                                     </h2>
                                     <Button
-                                        href="/sign-in"
+                                        onClick={() => router.push('/sign-in')}
                                         className="w-full mb-4"
+                                        icon={<MdLogin size={24} className="text-white" />}
                                     >
                                         Entrar com e-mail
                                     </Button>
@@ -103,9 +104,9 @@ export default function LandingPage() {
                                         Cadastrar
                                     </h3>
                                     <Button
-                                        href="/sign-up"
+                                        onClick={() => router.push('/sign-up')}
                                         variant="secondary"
-                                        className="w-full"
+                                        icon={<MdPersonAdd size={24} className="text-white" />}
                                     >
                                         Cadastrar com e-mail
                                     </Button>
