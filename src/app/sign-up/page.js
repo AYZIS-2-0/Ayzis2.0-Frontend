@@ -70,7 +70,7 @@ export default function SignUpPage() {
         <div className="min-h-screen flex flex-col">
             <Header />
 
-            <main className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
+            <main className="flex-1 flex items-center justify-center">
                 <div className="max-w-md w-full mx-4">
                     <div className="bg-white rounded-lg shadow-lg p-8">
                         <div className="text-center mb-8">

@@ -11,21 +11,7 @@ export default function Header({ authenticated = false, landing = false }) {
         window.location.href = '/'
     }
 
-    if (!authenticated && !landing) {
-        return (
-            <header className="border-b border-gray-200 bg-white shadow-sm">
-                <div className="mx-20 px-2">
-                    <div className="flex justify-between items-center h-16">
-                        <Link href="/" className="text-2xl font-bold text-blue-600">
-                            AYZIS
-                        </Link>
-                    </div>
-                </div>
-            </header>
-        )
-    }
-
-    if (!authenticated && landing) {
+    if (!authenticated) {
         return (
             <header className="bg-none">
                 <div className="mx-20 px-2">

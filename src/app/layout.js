@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Ayzis',
   description: 'Sistema de gestão e análise',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/globe.svg',
   },
 }
 
