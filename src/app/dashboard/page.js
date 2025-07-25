@@ -7,6 +7,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { api } from '@/libs/axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { Plus, RefreshCw, Database, TrendingUp } from 'lucide-react'
+import { FaDatabase } from 'react-icons/fa6'
 
 export default function DashboardPage() {
   const { user } = useAuth()
@@ -23,7 +24,7 @@ export default function DashboardPage() {
       // Aqui você fará as chamadas para sua API
       // const response = await api.get('/dashboard')
       // setData(response.data)
-      
+
       // Dados mockados para demonstração
       setData([
         { id: 1, title: 'Produtos', count: 150, icon: Database },
@@ -39,7 +40,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header authenticated />
-      
+
       <main className="flex-1 bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
@@ -80,38 +81,6 @@ export default function DashboardPage() {
               </div>
 
               {/* Ações rápidas */}
-              <div className="bg-white rounded-lg shadow p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">
-                  Ações Rápidas
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <Button
-                    href="/dashboard/database/produtos"
-                    variant="outline"
-                    className="p-4 h-auto flex flex-col items-center space-y-2"
-                  >
-                    <Database className="h-8 w-8" />
-                    <span>Gerenciar Produtos</span>
-                  </Button>
-                  
-                  <Button
-                    href="/dashboard/database/vendas"
-                    variant="outline"
-                    className="p-4 h-auto flex flex-col items-center space-y-2"
-                  >
-                    <TrendingUp className="h-8 w-8" />
-                    <span>Gerenciar Vendas</span>
-                  </Button>
-                  
-                  <button
-                    onClick={fetchData}
-                    className="p-4 h-auto flex flex-col items-center space-y-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <RefreshCw className="h-8 w-8" />
-                    <span>Atualizar Dados</span>
-                  </button>
-                </div>
-              </div>
             </div>
           )}
         </div>
