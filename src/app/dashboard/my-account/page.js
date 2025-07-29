@@ -27,7 +27,7 @@ export default function MyAccountPage() {
       // const response = await api.get('/user/profile')
       // setName(response.data.name)
       // setEmail(response.data.email)
-      
+
       // Dados mockados para demonstração
       setName('Usuário Exemplo')
       setEmail('usuario@exemplo.com')
@@ -65,12 +65,12 @@ export default function MyAccountPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header authenticated />
-      
+
       <main className="flex-1 bg-gray-50 py-8">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <div className="flex items-center mb-4">
-              <Link 
+              <Link
                 href="/dashboard"
                 className="mr-4 p-2 rounded-full hover:bg-gray-200 transition-colors"
               >

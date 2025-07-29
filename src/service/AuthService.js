@@ -14,9 +14,9 @@ export async function userLogin({ email, senha }) {
     }
 }
 
-export function userSignUp({ nome, email, senha, confirmarSenha }) {
+export async function userSignUp({ nome, email, senha, confirmarSenha }) {
     try {
-        const response = api.post('/auth/register', {
+        const response = await api.post('/auth/register', {
             nome,
             email,
             senha,
@@ -26,6 +26,16 @@ export function userSignUp({ nome, email, senha, confirmarSenha }) {
         return response;
     } catch (error) {
         console.error("Erro ao criar conta de usuário:", error);
+        throw error;
+    }
+}
+
+export async function userData() {
+    try {
+        const response = await api.get('/user/profile');
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar dados do usuário:", error);
         throw error;
     }
 }
