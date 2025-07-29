@@ -10,10 +10,11 @@ import { useAuth } from '@/contexts/AuthContext'
 import { api } from '@/libs/axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { MdLogin } from 'react-icons/md'
+import { userLogin } from '@/service/AuthService'
 
 export default function SignInPage() {
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [senha, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const { saveToken } = useAuth()
     const router = useRouter()
@@ -23,10 +24,7 @@ export default function SignInPage() {
         setIsLoading(true)
 
         try {
-            const response = await api.post('/auth/login', {
-                email,
-                senha: password
-            })
+            const response = await userLogin({ email, senha })
 
             saveToken(response.data.token)
             toast.success('Login realizado com sucesso!')
@@ -72,7 +70,7 @@ export default function SignInPage() {
                                 label="Senha"
                                 type="password"
                                 placeholder="Sua senha"
-                                value={password}
+                                value={senha}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />

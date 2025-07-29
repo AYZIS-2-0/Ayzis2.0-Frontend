@@ -9,6 +9,7 @@ import InputText from '@/components/InputText'
 import { useAuth } from '@/contexts/AuthContext'
 import { api } from '@/libs/axios'
 import { toast, ToastContainer } from 'react-toastify'
+import { userSignUp } from '@/service/AuthService'
 
 export default function SignUpPage() {
     const [name, setName] = useState('')
@@ -45,12 +46,7 @@ export default function SignUpPage() {
         setIsLoading(true)
 
         try {
-            const response = await api.post('/auth/register', {
-                nome: name,
-                email,
-                senha: password,
-                confirmarSenha: confirmPassword
-            })
+            const response = await userSignUp({ nome: name, email, senha: password, confirmarSenha: confirmPassword })
 
             saveToken(response.data.token)
             toast.success('Conta criada com sucesso!')
